@@ -1,2 +1,2 @@
-# skan-test
-skan専用テストリポジトリです。
+# console-test
+consoleアプリ専用テストリポジトリです。
