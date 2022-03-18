@@ -34,7 +34,7 @@ jobs:
     - name: Sonarqube begin
       run: |
         dotnet tool install --global dotnet-sonarscanner
-        dotnet sonarscanner begin /o:mhosokawa2 /k:mhosokawa2_console-test /d:sonar.login=${{ secrets.SONAR_TOKEN }} /s:$GITHUB_WORKSPACE/SonarQube.Analysis.xml
+        dotnet sonarscanner begin /o:japan-business-systems-test /k:japan-business-systems-test_console-test /d:sonar.login=${{ secrets.SONAR_TOKEN }} /s:$GITHUB_WORKSPACE/SonarQube.Analysis.xml
       working-directory: ./ConsoleCalculator
 
     - name: Build
