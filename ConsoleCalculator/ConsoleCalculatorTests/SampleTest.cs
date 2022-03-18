@@ -14,8 +14,8 @@ namespace ConsoleCalculatorTests
         [TestMethod]
         public void Calc_加算()
         {
-            var input1 = "10";
-            var input2 = "5";
+            var input1 = 10;
+            var input2 = 5;
             var ope = "+";
 
             var calculator = new SampleCalculator();
