@@ -12,7 +12,8 @@ jobs:
 
     runs-on: ubuntu-latest
     
-    if: github.event.pull_request.merged == true
+    # pull_requestの場合はマージされてたら実行する
+    # if: github.event.pull_request.merged == true
     timeout-minutes: 10
 
     steps:
