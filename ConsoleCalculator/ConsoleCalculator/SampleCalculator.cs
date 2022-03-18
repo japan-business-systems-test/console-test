@@ -8,9 +8,34 @@ namespace ConsoleCalculator
 {
     public class SampleCalculator
     {
-        public int Calc(string input1, string input2, string ope)
+        public int Calc(int input1, int input2, string ope)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(ope))
+            {
+                throw new InvalidOperationException($"パラメータ `ope` がnullまたは空です. (ope={ope})");
+            }
+
+            int result = 0;
+
+            switch (ope)
+            {
+                case "+":
+                    result = input1 + input2;
+                    break;
+                case "-":
+                    result = input1 - input2;
+                    break;
+                case "/":
+                    result = input1 / input2;
+                    break;
+                case "*":
+                    result = input1 * input2;
+                    break;
+                default:
+                    throw new NotImplementedException("四則演算以外はサポートしていません。");
+            }
+
+            return result;
         }
     }
 }
