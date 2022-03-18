@@ -41,7 +41,7 @@ jobs:
       working-directory: ./ConsoleCalculator
     
     - name: Test
-      run: dotnet test --no-build --verbosity normal --settings coverlet.runsettings --logger:trx
+      run: dotnet test  --settings coverlet.runsettings --logger:trx
       working-directory: ./ConsoleCalculator
 
     - name: Sonarqube end
