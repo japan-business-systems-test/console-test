@@ -1,28 +1,51 @@
 ﻿using ConsoleCalculator;
 
-// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+namespace ConsoleCalculator
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            new Program().Run();
+        }
 
-var calculator = new Step2();
+        void Run()
+        {
+            Console.CancelKeyPress += new ConsoleCancelEventHandler(Console_CancelKeyPress);
+            while (true)
+            {
+                DoCalc();
+            }
+        }
 
-Console.WriteLine("簡単な四則演算を行います。");
-Console.WriteLine();
+        void DoCalc()
+        {
+            Console.WriteLine("簡単な四則演算を行います。");
+            Console.WriteLine();
 
-Console.Write("1つ目の数字は？（入力後Enter）　：");
-var input1 = Console.ReadLine();
-Console.WriteLine();
+            Console.Write("1つ目の数字は？（入力後Enter）　：");
+            var input1 = Console.ReadLine();
+            Console.WriteLine();
 
-Console.Write("2つ目の数字は？（入力後Enter）　：");
-var input2 = Console.ReadLine();
-Console.WriteLine();
+            Console.Write("2つ目の数字は？（入力後Enter）　：");
+            var input2 = Console.ReadLine();
+            Console.WriteLine();
 
-Console.Write("どの演算[+|-|*|/]を行いますか？（入力後Enter）　：");
-var ope = Console.ReadLine();
-Console.WriteLine();
+            Console.Write("どの演算[+|-|*|/]を行いますか？（入力後Enter）　：");
+            var ope = Console.ReadLine();
+            Console.WriteLine();
 
-var result = calculator.Run(input1, input2, ope);
+            var result = new Step2().Run(input1, input2, ope);
+            Console.WriteLine($"計算結果　：{result}");
+            Console.ReadKey();
+        }
 
-Console.WriteLine($"計算結果　：{result}");
 
-
-Console.ReadKey();
+        protected void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs args)
+        {
+            Console.WriteLine("\n処理中断操作が行われました。");
+            Console.WriteLine($"  Key pressed: {args.SpecialKey}");
+        }
+        
+    }
+}
